@@ -14,4 +14,4 @@ requires:
   Catalyst::Utils: 0
   Test::More: 0
   Test::WWW::Selenium: 0
-version: 0.00_01
+version: 0.01

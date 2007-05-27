@@ -23,11 +23,11 @@ Test::WWW::Selenium::Catalyst - Test your Catalyst application with Selenium
 
 =cut
 
-our $VERSION = '0.00_01';
+our $VERSION = '0.01';
 
-=head1 DEVELOPER RELEASE
+=head1 DEVELOPERISH RELEASE
 
-This is a developer release.  It's working for me in production, but
+This is still a test release.  It's working for me in production, but
 it depends on a Java application (SeleniumRC), which can be
 unreliable.  On my Debian system, I had to put C<firefox-bin> in my
 path, and add C</usr/lib/firefox> to C<LD_LIBRARY_PATH>.  Every distro
@@ -51,10 +51,10 @@ Please report any problems to RT, the Catalyst mailing list, or the
 
 This module starts the SeleniumRC server and your Catalyst app so that
 you can test it with SeleniumRC.  Once you've called
-C<Test::WWW::Selenium::Catalyst->start>, everything is just like
+C<< Test::WWW::Selenium::Catalyst->start >>, everything is just like
 L<Test::WWW::Selenium|Test::WWW:Selenium>.
 
-=head1 FUNCTIONS
+=head1 METHODS
 
 =head2 start
 
@@ -80,7 +80,7 @@ sub _start_server {
     my $pid;
     if(0 == ($pid = fork())){
 	local $SIG{TERM} = sub {
-	    diag("Selenium server $$ going down (TERM)");
+	    diag("Selenium server $$ going down (TERM)") if $DEBUG;
 	    exit 0;
 	};
 	
@@ -93,7 +93,7 @@ sub _start_server {
 	}
 	
 	diag("Selenium running in $$") if $DEBUG;
-        Alien::SeleniumRC->start()
+        Alien::SeleniumRC::start()
 	    or croak "Can't start Selenium server";
 	diag("Selenium server $$ going down") if $DEBUG;
 	exit 1;
@@ -236,33 +236,17 @@ L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-WWW-Selenium-Catalyst>.
 I will be notified, and then you'll automatically be notified of progress on
 your bug as I make changes.
 
-=head1 SUPPORT
+=head1 PATCHES
 
-You can find documentation for this module with the perldoc command.
+Send me unified diffs against the git HEAD at:
 
-    perldoc Test::WWW::Selenium::Catalyst
+    git://git.jrock.us/Test-WWW-Selenium-Catalyst
 
-You can also look for information at:
+You can view the repository online at 
 
-=over 4
+    http://git.jrock.us/?p=Test-WWW-Selenium-Catalyst.git;a=summary
 
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/Test-WWW-Selenium-Catalyst>
-
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/Test-WWW-Selenium-Catalyst>
-
-=item * RT: CPAN's request tracker
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Test-WWW-Selenium-Catalyst>
-
-=item * Search CPAN
-
-L<http://search.cpan.org/dist/Test-WWW-Selenium-Catalyst>
-
-=back
+Thanks in advance for your contributions!
 
 =head1 ACKNOWLEDGEMENTS
 
