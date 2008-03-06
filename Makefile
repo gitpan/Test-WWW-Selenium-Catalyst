@@ -1,7 +1,7 @@
 # This Makefile is for the Test::WWW::Selenium::Catalyst extension to perl.
 #
 # It was generated automatically by MakeMaker version
-# 6.32 (Revision: 27436) from the contents of
+# 6.42 (Revision: 41145) from the contents of
 # Makefile.PL. Don't edit this file, edit Makefile.PL instead.
 #
 #       ANY CHANGES MADE HERE WILL BE LOST!
@@ -18,8 +18,8 @@
 #     NO_META => q[1]
 #     PL_FILES => {  }
 #     PREREQ_PM => { Test::More=>q[0], Catalyst::Utils=>q[0], Catalyst::Runtime=>q[5.7001], Test::WWW::Selenium=>q[0], Alien::SeleniumRC=>q[0] }
-#     VERSION => q[0.01]
-#     dist => { PREOP=>q[$(PERL) -I. -MModule::Install::Admin -e "dist_preop(q($(DISTVNAME)))"] }
+#     VERSION => q[0.02]
+#     dist => { PREOP=>q[$(PERL) -I. "-MModule::Install::Admin" -e "dist_preop(q($(DISTVNAME)))"] }
 #     test => { TESTS=>q[t/01-live.t t/boilerplate.t t/pod-coverage.t t/pod.t] }
 
 # --- MakeMaker post_initialize section:
@@ -27,7 +27,7 @@
 
 # --- MakeMaker const_config section:
 
-# These definitions are from config.sh (via /usr/lib/perl/5.8/Config.pm)
+# These definitions are from config.sh (via /home/jon/perl/install/lib/5.10.0/x86_64-linux/Config.pm)
 
 # They may have been overridden via Makefile.PL or on the command line
 AR = ar
@@ -39,19 +39,19 @@ DLSRC = dl_dlopen.xs
 EXE_EXT = 
 FULL_AR = /usr/bin/ar
 LD = cc
-LDDLFLAGS = -shared -L/usr/local/lib
+LDDLFLAGS = -shared -O2 -L/usr/local/lib
 LDFLAGS =  -L/usr/local/lib
-LIBC = /lib/libc-2.3.6.so
+LIBC = /lib/libc-2.7.so
 LIB_EXT = .a
 OBJ_EXT = .o
 OSNAME = linux
-OSVERS = 2.6.18.3
+OSVERS = 2.6.22-3-amd64
 RANLIB = :
-SITELIBEXP = /usr/local/share/perl/5.8.8
-SITEARCHEXP = /usr/local/lib/perl/5.8.8
+SITELIBEXP = /home/jon/perl/install/lib/site_perl/5.10.0
+SITEARCHEXP = /home/jon/perl/install/lib/site_perl/5.10.0/x86_64-linux
 SO = so
-VENDORARCHEXP = /usr/lib/perl5
-VENDORLIBEXP = /usr/share/perl5
+VENDORARCHEXP = 
+VENDORLIBEXP = 
 
 
 # --- MakeMaker constants section:
@@ -60,11 +60,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Test::WWW::Selenium::Catalyst
 NAME_SYM = Test_WWW_Selenium_Catalyst
-VERSION = 0.01
+VERSION = 0.02
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_01
+VERSION_SYM = 0_02
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.01
+XS_VERSION = 0.02
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -73,60 +73,60 @@ INST_BIN = blib/bin
 INST_LIB = blib/lib
 INST_MAN1DIR = blib/man1
 INST_MAN3DIR = blib/man3
-MAN1EXT = 1p
-MAN3EXT = 3pm
+MAN1EXT = 1
+MAN3EXT = 3
 INSTALLDIRS = site
 DESTDIR = 
 PREFIX = $(SITEPREFIX)
-PERLPREFIX = /usr
-SITEPREFIX = /usr/local
-VENDORPREFIX = /usr
-INSTALLPRIVLIB = /usr/share/perl/5.8
+PERLPREFIX = /home/jon/perl/install
+SITEPREFIX = /home/jon/perl/install
+VENDORPREFIX = 
+INSTALLPRIVLIB = /home/jon/perl/install/lib/5.10.0
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = /usr/local/share/perl/5.8.8
+INSTALLSITELIB = /home/jon/perl/install/lib/site_perl/5.10.0
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
-INSTALLVENDORLIB = /usr/share/perl5
+INSTALLVENDORLIB = 
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = /usr/lib/perl/5.8
+INSTALLARCHLIB = /home/jon/perl/install/lib/5.10.0/x86_64-linux
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = /usr/local/lib/perl/5.8.8
+INSTALLSITEARCH = /home/jon/perl/install/lib/site_perl/5.10.0/x86_64-linux
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
-INSTALLVENDORARCH = /usr/lib/perl5
+INSTALLVENDORARCH = 
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
-INSTALLBIN = /usr/bin
+INSTALLBIN = /home/jon/perl/install/bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = /usr/local/bin
+INSTALLSITEBIN = /home/jon/perl/install/bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
-INSTALLVENDORBIN = /usr/bin
+INSTALLVENDORBIN = 
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
-INSTALLSCRIPT = /usr/bin
+INSTALLSCRIPT = /home/jon/perl/install/bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
-INSTALLSITESCRIPT = /usr/local/bin
+INSTALLSITESCRIPT = /home/jon/perl/install/bin
 DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
-INSTALLVENDORSCRIPT = /usr/bin
+INSTALLVENDORSCRIPT = 
 DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
-INSTALLMAN1DIR = /usr/share/man/man1
+INSTALLMAN1DIR = /home/jon/perl/install/man/man1
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
-INSTALLSITEMAN1DIR = /usr/local/man/man1
+INSTALLSITEMAN1DIR = /home/jon/perl/install/man/man1
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
-INSTALLVENDORMAN1DIR = /usr/share/man/man1
+INSTALLVENDORMAN1DIR = 
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
-INSTALLMAN3DIR = /usr/share/man/man3
+INSTALLMAN3DIR = /home/jon/perl/install/man/man3
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
-INSTALLSITEMAN3DIR = /usr/local/man/man3
+INSTALLSITEMAN3DIR = /home/jon/perl/install/man/man3
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
-INSTALLVENDORMAN3DIR = /usr/share/man/man3
+INSTALLVENDORMAN3DIR = 
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
 PERL_LIB =
-PERL_ARCHLIB = /usr/lib/perl/5.8
+PERL_ARCHLIB = /home/jon/perl/install/lib/5.10.0/x86_64-linux
 LIBPERL_A = libperl.a
 FIRST_MAKEFILE = Makefile
 MAKEFILE_OLD = Makefile.old
 MAKE_APERL_FILE = Makefile.aperl
 PERLMAINCC = $(CC)
-PERL_INC = /usr/lib/perl/5.8/CORE
-PERL = /usr/bin/perl "-Iinc"
-FULLPERL = /usr/bin/perl "-Iinc"
+PERL_INC = /home/jon/perl/install/lib/5.10.0/x86_64-linux/CORE
+PERL = /home/jon/perl/install/bin/perl "-Iinc"
+FULLPERL = /home/jon/perl/install/bin/perl "-Iinc"
 ABSPERL = $(PERL)
 PERLRUN = $(PERL)
 FULLPERLRUN = $(FULLPERL)
@@ -138,9 +138,9 @@ PERL_CORE = 0
 PERM_RW = 644
 PERM_RWX = 755
 
-MAKEMAKER   = /usr/local/share/perl/5.8.8/ExtUtils/MakeMaker.pm
-MM_VERSION  = 6.32
-MM_REVISION = 27436
+MAKEMAKER   = /home/jon/perl/install/lib/5.10.0/ExtUtils/MakeMaker.pm
+MM_VERSION  = 6.42
+MM_REVISION = 41145
 
 # FULLEXT = Pathname for extension directory (eg Foo/Bar/Oracle).
 # BASEEXT = Basename part of FULLEXT. May be just equal FULLEXT. (eg Oracle)
@@ -192,7 +192,7 @@ PM_TO_BLIB = lib/Test/WWW/Selenium/Catalyst.pm \
 
 
 # --- MakeMaker platform_constants section:
-MM_Unix_VERSION = 1.52
+MM_Unix_VERSION = 6.42
 PERL_MALLOC_DEF = -DPERL_EXTMALLOC_DEF -Dmalloc=Perl_malloc -Dfree=Perl_mfree -Drealloc=Perl_realloc -Dcalloc=Perl_calloc
 
 
@@ -235,7 +235,7 @@ FIXIN = $(PERLRUN) "-MExtUtils::MY" -e "MY->fixin(shift)"
 
 
 # --- MakeMaker makemakerdflt section:
-makemakerdflt: all
+makemakerdflt : all
 	$(NOECHO) $(NOOP)
 
 
@@ -247,7 +247,7 @@ ZIPFLAGS = -r
 COMPRESS = gzip --best
 SUFFIX = .gz
 SHAR = shar
-PREOP = $(PERL) -I. -MModule::Install::Admin -e "dist_preop(q($(DISTVNAME)))"
+PREOP = $(PERL) -I. "-MModule::Install::Admin" -e "dist_preop(q($(DISTVNAME)))"
 POSTOP = $(NOECHO) $(NOOP)
 TO_UNIX = $(NOECHO) $(NOOP)
 CI = ci -u
@@ -255,7 +255,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Test-WWW-Selenium-Catalyst
-DISTVNAME = Test-WWW-Selenium-Catalyst-0.01
+DISTVNAME = Test-WWW-Selenium-Catalyst-0.02
 
 
 # --- MakeMaker macro section:
@@ -472,7 +472,7 @@ realclean purge ::  clean realclean_subdirs
 
 
 # --- MakeMaker metafile section:
-metafile:
+metafile :
 	$(NOECHO) $(NOOP)
 
 
@@ -495,7 +495,7 @@ manifest :
 	$(PERLRUN) "-MExtUtils::Manifest=mkmanifest" -e mkmanifest
 
 veryclean : realclean
-	$(RM_F) *~ *.orig */*~ */*.orig
+	$(RM_F) *~ */*~ *.orig */*.orig *.bak */*.bak *.old */*.old 
 
 
 
@@ -692,7 +692,7 @@ uninstall_from_vendordirs ::
 
 # --- MakeMaker force section:
 # Phony target to force checking subdirectories.
-FORCE:
+FORCE :
 	$(NOECHO) $(NOOP)
 
 
@@ -719,7 +719,7 @@ $(FIRST_MAKEFILE) : Makefile.PL $(CONFIGDEP)
 
 # --- MakeMaker makeaperl section ---
 MAP_TARGET    = perl
-FULLPERL      = /usr/bin/perl
+FULLPERL      = /home/jon/perl/install/bin/perl
 
 $(MAP_TARGET) :: static $(MAKE_APERL_FILE)
 	$(MAKE) $(USEMAKEFILE) $(MAKE_APERL_FILE) $@
@@ -742,7 +742,11 @@ TESTDB_SW = -d
 
 testdb :: testdb_$(LINKTYPE)
 
-test :: $(TEST_TYPE)
+test :: $(TEST_TYPE) subdirs-test
+
+subdirs-test ::
+	$(NOECHO) $(NOOP)
+
 
 test_dynamic :: pure_all
 	PERL_DL_NONLAZY=1 $(FULLPERLRUN) "-MExtUtils::Command::MM" "-e" "test_harness($(TEST_VERBOSE), 'inc', '$(INST_LIB)', '$(INST_ARCHLIB)')" $(TEST_FILES)
@@ -758,8 +762,8 @@ testdb_static :: testdb_dynamic
 
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
-ppd:
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0,01,0,0">' > $(DISTNAME).ppd
+ppd :
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0,02,0,0">' > $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <TITLE>$(DISTNAME)</TITLE>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <ABSTRACT>Test your Catalyst application with Selenium</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>Jonathan Rockway &lt;jrockway@cpan.org&gt;</AUTHOR>' >> $(DISTNAME).ppd
@@ -770,7 +774,7 @@ ppd:
 	$(NOECHO) $(ECHO) '        <DEPENDENCY NAME="Test-More" VERSION="0,0,0,0" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <DEPENDENCY NAME="Test-WWW-Selenium" VERSION="0,0,0,0" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <OS NAME="$(OSNAME)" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="i486-linux-gnu-thread-multi-5.8" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="x86_64-linux-5.1" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '</SOFTPKG>' >> $(DISTNAME).ppd
@@ -791,13 +795,13 @@ pm_to_blib : $(TO_INST_PM)
 
 
 # End.
-# Postamble by Module::Install 0.64
+# Postamble by Module::Install 0.68
 # --- Module::Install::Admin::Makefile section:
 
 realclean purge ::
 	$(RM_F) $(DISTVNAME).tar$(SUFFIX)
 	$(RM_RF) inc MANIFEST.bak _build
-	$(PERL) -I. -MModule::Install::Admin -e "remove_meta()"
+	$(PERL) -I. "-MModule::Install::Admin" -e "remove_meta()"
 
 reset :: purge
 
