@@ -1,22 +1,22 @@
---- 
-abstract: Test your Catalyst application with Selenium
-author: 
-  - Jonathan Rockway <jrockway@cpan.org>
+---
+abstract: 'Test your Catalyst application with Selenium'
+author:
+  - 'Jonathan Rockway <jrockway@cpan.org>'
 distribution_type: module
-generated_by: Module::Install version 0.68
+generated_by: 'Module::Install version 0.790'
 license: Perl
-meta-spec: 
-  url: http://module-build.sourceforge.net/META-spec-v1.3.html
-  version: 1.3
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
 name: Test-WWW-Selenium-Catalyst
-no_index: 
-  directory: 
+no_index:
+  directory:
     - inc
     - t
-requires: 
+requires:
   Alien::SeleniumRC: 0
   Catalyst::Runtime: 5.7001
   Catalyst::Utils: 0
   Test::More: 0
   Test::WWW::Selenium: 0
-version: 0.02
+version: 0.03
