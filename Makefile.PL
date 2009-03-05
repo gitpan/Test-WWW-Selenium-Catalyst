@@ -3,11 +3,8 @@ use warnings;
 use inc::Module::Install;
 
 name('Test-WWW-Selenium-Catalyst');
-author('Jonathan Rockway <jrockway@cpan.org>');
-version_from('lib/Test/WWW/Selenium/Catalyst.pm');
-abstract_from('lib/Test/WWW/Selenium/Catalyst.pm');
+all_from('lib/Test/WWW/Selenium/Catalyst.pm');
 license('Perl');
-include('ExtUtils::AutoInstall');
 requires(
 	 'Alien::SeleniumRC' => 0,
 	 'Catalyst::Runtime' => 5.7001,
