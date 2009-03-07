@@ -2,6 +2,8 @@
 abstract: 'Test your Catalyst application with Selenium'
 author:
   - 'Ash Berlin C<< <ash@cpan.org> >>'
+build_requires:
+  IPC::Cmd: 0.42
 distribution_type: module
 generated_by: 'Module::Install version 0.790'
 license: Perl
@@ -19,6 +21,7 @@ requires:
   Catalyst::Utils: 0
   Test::More: 0
   Test::WWW::Selenium: 0
+  perl: 5.8.0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.04
+version: 0.05
