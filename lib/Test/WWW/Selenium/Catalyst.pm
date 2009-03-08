@@ -24,7 +24,7 @@ Test::WWW::Selenium::Catalyst - Test your Catalyst application with Selenium
 
 =cut
 
-our $VERSION = '0.05';
+our $VERSION = '0.05_99';
 
 =head1 DEVELOPERISH RELEASE
 
@@ -247,7 +247,8 @@ END {
         if($www_selenium){
             diag("Shutting down Selenium Server $sel_pid") if $DEBUG;
             $www_selenium->stop();
-            $www_selenium->do_command('shutDown');
+            # This can fail if a page hasn't been requested yet.
+            eval { $www_selenium->do_command('shutDown') };
             undef $www_selenium;
         }
         diag("Killing Selenium Server $sel_pid") if $DEBUG;
