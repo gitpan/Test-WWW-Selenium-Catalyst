@@ -7,6 +7,7 @@ use Alien::SeleniumRC;
 use Test::WWW::Selenium;
 use Test::More;
 use Catalyst::Utils;
+use Catalyst::EngineLoader;
 
 BEGIN { $ENV{CATALYST_ENGINE} ||= 'HTTP'; }
 
@@ -24,7 +25,7 @@ Test::WWW::Selenium::Catalyst - Test your Catalyst application with Selenium
 
 =cut
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 =head1 DEVELOPERISH RELEASE
 
@@ -102,13 +103,13 @@ and it's killed when your test exits. If wish to manage a selenium server
 yourself, (for instance you wish to start up a server once and run a number of
 tests against it) pass C<-no_selenium_server> to import:
 
- use Test::WWW::Selenium 'MyApp'
+ use Test::WWW::Selenium::Catalyst 'MyApp',
    -no_selenium_server => 1
 
 Along a similar vein you can also pass command line arguments to the selenium
 server via C<-selenium_args>:
 
- use Test::WWW::Selenium 'MyApp'
+ use Test::WWW::Selenium::Catalyst 'MyApp',
    -selenium_args => "-singleWindow -port 4445"
 
 =head2 sel_pid
@@ -216,8 +217,16 @@ sub start {
               diag("Catalyst server $$ going down (TERM)") if $DEBUG;
               exit 0;
           };
-          diag("Catalyst server running in $$") if $DEBUG;
-          $app->run($port, 'localhost');
+          diag("Catalyst server running in pid $$ with port $port") if $DEBUG;
+          my $loader = Catalyst::EngineLoader->new(application_name => $app);
+          my $server = $loader->auto(port => $port, host => 'localhost',
+              server_ready => sub {
+                  diag("Server started on port $port") if $DEBUG;
+              },
+          );
+          $app->run($port, 'localhost', $server);
+
+          diag("Process $$ (catalyst server) exiting.") if $DEBUG;
           exit 1;
       }
       $uri = 'http://localhost:' . $port;
@@ -270,7 +279,7 @@ END {
             diag("Shutting down Selenium Server $sel_pid") if $DEBUG;
             $www_selenium->stop();
             # This can fail if a page hasn't been requested yet.
-            eval { $www_selenium->do_command('shutDown') };
+            eval { $www_selenium->do_command('shutDownSeleniumServer') };
             undef $www_selenium;
         }
         diag("Killing Selenium Server $sel_pid") if $DEBUG;
@@ -278,8 +287,7 @@ END {
         undef $sel_pid;
 
     } elsif ($www_selenium) {
-        diag("Stopping Selenium Session $sel_pid") if $DEBUG;
-        $www_selenium->stop();
+        diag("Using external Selenium server. Don't shut it down.") if $DEBUG;
         undef $www_selenium;
     }
 
